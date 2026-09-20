@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vault 02 - Border Expansion</title>
+    <link rel="icon" type="image/png" href="../Logo.png">
+    <link rel="stylesheet" href="quest2.css">
+</head>
+<body>
+    <canvas id="void-canvas"></canvas>
+
+    <div class="cartography-container">
+        <div class="cartography-header">
+            <div class="header-tag">> CARTOGRAPHY_PROTOCOL // RHO-5000</div>
+            <div class="status-indicator">
+                <span class="pulse-dot"></span>
+                <span id="border-status">BARRIER ACTIVE [5000M]</span>
+            </div>
+        </div>
+
+        <div class="radar-viewport">
+            <canvas id="radarCanvas" width="460" height="340"></canvas>
+            <div class="radar-scanline"></div>
+            <div class="coordinates-hud" id="coords-hud">TARGET: X: 0000 | Z: 0000</div>
+        </div>
+
+        <div class="controls-panel">
+            <div class="control-row">
+                <label for="freq-slider">TUNING FREQUENCY (kHz):</label>
+                <input type="range" id="freq-slider" min="100" max="999" value="150">
+                <span id="freq-val" class="mono-badge">150 kHz</span>
+            </div>
+
+            <div class="beacon-slots">
+                <div class="beacon-chip" id="beacon-1">BEACON α: OFFLINE</div>
+                <div class="beacon-chip" id="beacon-2">BEACON β: OFFLINE</div>
+                <div class="beacon-chip" id="beacon-3">BEACON γ: OFFLINE</div>
+            </div>
+
+            <button id="lock-btn" disabled>SYNC BEACON SIGNAL</button>
+            <p id="system-msg">> Move cursor over radar & match frequency to lock beacons.</p>
+        </div>
+
+        <!-- Pop-up no final quando o puzzle é resolvido -->
+        <div id="reward-modal" class="reward-box hidden">
+            <h3>WORLD BORDER EXPANDED: +5,000 BLOCKS</h3>
+            <p>Transmission decrypted. Use this key inside the server:</p>
+            <div class="keyword-container">
+                <span id="secret-word-display">--------</span>
+                <button id="btn-copy">COPY</button>
+            </div>
+            <span class="esc-note">Press [ESC] to return to Hub</span>
+        </div>
+    </div>
+
+    <div class="crt-overlay"></div>
+
+    <script src="quest2.js"></script>
+</body>
+</html>
